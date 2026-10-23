@@ -1,24 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CharacterPanel } from "@/components/arcana/CharacterPanel";
+import { Spellbook } from "@/components/arcana/Spellbook";
+import { Inventory } from "@/components/arcana/Inventory";
+import { QuestLog } from "@/components/arcana/QuestLog";
+import { DialogueBox } from "@/components/arcana/DialogueBox";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "The Unwritten Arcana — Interface Prototype" },
+      { name: "description", content: "Fantasy RPG UI prototype: character, spellbook, inventory, quest log and dialogue panels." },
+      { property: "og:title", content: "The Unwritten Arcana — Interface Prototype" },
+      { property: "og:description", content: "Modular fantasy RPG interface panels for The Unwritten Arcana." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="mx-auto max-w-7xl px-4 py-10">
+      <header className="mb-10 text-center">
+        <p className="text-sm uppercase tracking-[0.3em] text-arcane">Interface Prototype</p>
+        <h1 className="gilt-text mt-2 text-4xl md:text-5xl">The Unwritten Arcana</h1>
+        <p className="mt-2 italic text-muted-foreground">Mock data only — panels are standalone and await game-state wiring.</p>
+      </header>
+      <div className="grid gap-8 lg:grid-cols-[22rem_1fr]">
+        <CharacterPanel />
+        <div className="grid gap-8">
+          <Spellbook />
+          <div className="grid gap-8 xl:grid-cols-[1fr_1.3fr]">
+            <Inventory />
+            <QuestLog />
+          </div>
+        </div>
+      </div>
+      <div className="mt-8"><DialogueBox /></div>
+    </main>
   );
 }
