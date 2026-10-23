@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Arcana UI panels live in src/components/arcana/ as self-contained components taking optional props (mock data in data.ts) so they can be adapted to the Phaser game state later.
