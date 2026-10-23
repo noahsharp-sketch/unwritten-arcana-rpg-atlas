@@ -4,6 +4,7 @@ import { Spellbook } from "@/components/arcana/Spellbook";
 import { Inventory } from "@/components/arcana/Inventory";
 import { QuestLog } from "@/components/arcana/QuestLog";
 import { DialogueBox } from "@/components/arcana/DialogueBox";
+import { GameCanvas } from "@/game-world/GameCanvas";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,6 +39,10 @@ function Index() {
         </div>
       </div>
       <div className="mt-8"><DialogueBox /></div>
+      <section className="mt-10" aria-labelledby="phaser-test-title">
+        <h2 id="phaser-test-title" className="gilt-text mb-4 text-xl">Phaser 3 — Integration Smoke Test</h2>
+        <GameCanvas />
+      </section>
     </main>
   );
 }

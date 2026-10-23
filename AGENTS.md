@@ -10,3 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Arcana UI panels live in src/components/arcana/ as self-contained components taking optional props (mock data in data.ts) so they can be adapted to the Phaser game state later.
+- Game engine components live in src/game-world/ and dynamically import Phaser inside React effects with cancellation and unmount destruction, keeping browser-only engine code out of SSR and independent of Arcana panels.
