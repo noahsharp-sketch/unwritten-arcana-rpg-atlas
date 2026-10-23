@@ -4,7 +4,7 @@ import { Frame } from "./Frame";
 import { quests as defaultQuests, type Quest } from "./data";
 
 export function QuestLog({ quests = defaultQuests }: { quests?: Quest[] }) {
-  const [sel, setSel] = useState(quests[0]);
+  const [sel, setSel] = useState<Quest>(quests[0]!);
   return (
     <Frame title="Quest Log" subtitle="Threads yet to be tied">
       <div className="grid gap-5 md:grid-cols-[14rem_1fr]">

@@ -4,7 +4,7 @@ import { Frame } from "./Frame";
 import { spells as defaultSpells, type Spell } from "./data";
 
 export function Spellbook({ spells = defaultSpells, onCast }: { spells?: Spell[]; onCast?: (s: Spell) => void }) {
-  const [selected, setSelected] = useState(spells[0]);
+  const [selected, setSelected] = useState<Spell>(spells[0]!);
   return (
     <Frame title="Spellbook" subtitle="Words that rewrite the world" variant="parchment">
       <div className="grid gap-5 md:grid-cols-2">
